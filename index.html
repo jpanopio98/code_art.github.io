@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"> <!-- link to style sheet  -->
+    <title>Code Art Project</title> <!-- Your Name/Website Name Here -->
+    <script type="text/javascript" src="processing.js"></script>
+        <body>
+            <header>
+            </header>
+            <script type="application/processing">
+            
+            
+            
+            void setup(){
+ size(400, 400);  // size always goes first!
+  surface.setResizable(true);
+ fill(234, 83, 83);
+ stroke(0);
+ strokeWeight(15);
+ 
+}
+
+ 
+ 
+ 
+ void draw(){
+   background(144, 250, 255);
+   translate(width / 2, height / 2);
+   beginShape();
+   
+   
+   //add some vertices...
+   for (float theta = 0; theta <= 2 * PI; theta += 0.01){
+     float rad = r(theta,
+      mouseX / 100.0 , //a
+      mouseY / 100.0, //b
+      6, //m
+      1, //n1
+      1, //n2
+      1 //n3
+
+     );
+     float x = rad * sin (theta) * 50;
+     float y = rad * cos(theta) * 50;
+     vertex(x, y);
+   }
+   endShape(); 
+   
+ }
+ 
+ float r(float theta, float a, float b, float m, float n1, float n2, float n3){
+   return  pow(pow(abs(cos(m * theta / 4.0) / a) , n2) + pow(abs(sin(m * theta / 4.0) / b) , n2), - 1.0 / n1);
+   
+ }
+ 
+ 
+           
+            </script>
+            <canvas></canvas>
+        <footer>
+            <p>&copy; Jedd Panopio 2018</p>
+        </footer>
+    </body>
+    
+    
+    
+    
+    
+    
+</head> 
+</html>
